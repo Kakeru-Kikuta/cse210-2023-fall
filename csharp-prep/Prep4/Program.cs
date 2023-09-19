@@ -8,7 +8,7 @@ class Program
         int userNum = -1;
         while (userNum !=0 )
         {
-             Console.Write("Enter a number (0 to quit): ");
+            Console.Write("Enter a number (0 to quit): ");
             
             string userResponse = Console.ReadLine();
             userNum = int.Parse(userResponse);
