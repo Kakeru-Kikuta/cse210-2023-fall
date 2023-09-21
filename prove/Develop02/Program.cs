@@ -1,7 +1,7 @@
 using System;
 using System.Data.Common;
 
-abstract class Jurnal
+abstract class Jurnal///日記のエントリーの置き場所
 {
     protected string[] jurnal = {"","","","","",""};
     protected int arrayCount = 0;
@@ -35,7 +35,8 @@ class Program
             ///Display jurnal
             else if(_userMenuEnter == 2)
             {
-
+                Display display = new Display();
+                display.displayEntry();
             }
 
             ///Save jurnal 
@@ -51,6 +52,7 @@ class Program
             }
 
         }
+
 
        
     }
