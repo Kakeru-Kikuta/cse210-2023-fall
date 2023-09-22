@@ -8,10 +8,9 @@ abstract class Jurnal///日記のエントリーの置き場所
     
     protected string[] date = {"","","","","",""};
 
-
-
-
 }
+
+
 class Program
 {
     static void Main(string[] arge)

@@ -8,7 +8,7 @@ class Road
     
     public void roadJurnalFormFile()///ファイルに保存された日記をすべて表示するメソッド
     {
-        ///string fileName = "Jurnal.TXT";
+        ///string fileName = "Jurnal.CSV";
         ///string[] lines = System.IO.File>ReadAllLines(FileName);
         ///ユーザーにファイル名の入力を求める
         ///string Console.WriteLine("Enter the filename.: ");
@@ -17,7 +17,7 @@ class Road
         ///ユーザーの入力を参照
         ///指定されたファイルを特定する
         ///ファイルを開く
-        ///ファイル内のコンテンツをすべて表示する 
+        ///ファイル内のコンテンツをクラスのプロパティに格納する（home work ここを掘り下げて示す）
         Console.WriteLine("");
     }
 }
