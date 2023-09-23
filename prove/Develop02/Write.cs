@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 class Write:Jurnal
 {
     ///Ask a random question
-    private string[] prompt = {"A","B","C","D","E"};
+    private string[] prompt = {"Best moment for today; ","The thing that you want to improve; ","Best food for today","Today's highest driving speed; ","An Attrractive object; "};
     
     public string output_prompt()
     {

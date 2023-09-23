@@ -3,17 +3,18 @@ using System.Dynamic;
 
 class Display:Jurnal///エントリへのアクセスのためにClass Jurnal を継承
 {
-    public string[] getJurnal ///エントリを表示するメソッドを定義（voidは暫定的な処置）
+    public override string[] GetJ 
     {
         ///class Jurnalから日付データを取り出す
         get{return jurnal;}
         
     }
 
-    public string[] getDate
+    public override string[] GetD
     {
         get{return date;}
     }
+
 
     public void displayEntry()
     {
@@ -22,8 +23,8 @@ class Display:Jurnal///エントリへのアクセスのためにClass Jurnal �
         int i = 0;
         while(i > 4)
             {
-                Console.WriteLine(d.getDate[i]);
-                Console.WriteLine(d.getJurnal[i]);
+                Console.WriteLine(d.GatD[i]);
+                Console.WriteLine(d.GetJ[i]);
                 i = i+1;
             }
 

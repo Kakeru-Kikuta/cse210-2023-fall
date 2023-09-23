@@ -6,18 +6,32 @@ using System.Text;
 class Road
 {
     
-    public void roadJurnalFormFile()///ファイルに保存された日記をすべて表示するメソッド
+    public void roadJurnalFormFile()///ファイルに保存された日記をロードするメソッド
     {
-        ///string fileName = "Jurnal.CSV";
-        ///string[] lines = System.IO.File>ReadAllLines(FileName);
-        ///ユーザーにファイル名の入力を求める
-        ///string Console.WriteLine("Enter the filename.: ");
-        ///ユーザーからの入力を定義
-        string uderFile = Console.ReadLine();
-        ///ユーザーの入力を参照
-        ///指定されたファイルを特定する
-        ///ファイルを開く
-        ///ファイル内のコンテンツをクラスのプロパティに格納する（home work ここを掘り下げて示す）
-        Console.WriteLine("");
+        string oF = "Jurnal.CSV";
+        StreamReader reader = new StreamReader(@oF);///ファイルを開く
+
+        List<string[]> entryLists = new List<string[]>();
+        int i = 0;
+
+        while (!reader.EndOfStream)
+        {
+            string line = reader.ReadLine();
+            if (i == 0)
+            {
+                string[] cols = line.Split(",");
+                i +=1;
+                continue;
+            }
+
+            string[] userJurnal =line.Split(",");
+            entryLists.Add(userJurnal);
+        }
+
+        Console.WriteLine($"{entryLists}");///表示する
+        
     }
-}
+}       ///保存されているデータはコンマで区切られているためCSVのルールによりデータは
+        ///右に伸びていると推測される。行数は2行で上下のいずれかに日記データと日付データが
+        ///割り当てられておりデータは保存したエントリの数だけの列数がある。
+        

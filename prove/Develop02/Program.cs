@@ -1,5 +1,6 @@
 using System;
 using System.Data.Common;
+using System.Security.Cryptography.X509Certificates;
 
 abstract class Jurnal///日記のエントリーの置き場所
 {
@@ -7,6 +8,16 @@ abstract class Jurnal///日記のエントリーの置き場所
     protected int arrayCount = 0;
     
     protected string[] date = {"","","","","",""};
+
+    public abstract string[] GatD///日付エントリの取得
+    {
+        get;
+    }   
+
+    public abstract string[] GetJ///日記エントリの取得
+    {
+        get;
+    }   
 
 }
 
@@ -41,19 +52,33 @@ class Program
             ///Save jurnal 
             else if(_userMenuEnter == 3)
             {
-
+                Program program = new Program();
+                program.callGetter();
             }
 
             ///Road jurnal
             else if(_userMenuEnter == 4)
             {
-
+                Road road = new Road();
+                road.roadJurnalFormFile();
             }
 
         }
-
-
        
+    }
+
+    public void callGetter()
+    {
+        var save = new Save();
+        
+        save.dateToCsv(save.GatD);
+        string d = save.dateToCsv(save.GatD);
+
+        save.jurnalToCsv(save.GetJ);
+        string j = save.jurnalToCsv(save.GetJ);
+
+        save.savseToCSV(d,j);
+
     }
 
     

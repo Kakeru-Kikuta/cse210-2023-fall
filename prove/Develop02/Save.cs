@@ -5,17 +5,17 @@ using System.Text;
 
 class Save:Jurnal///エントリをファイルに保存するクラス
 {
-    public string[] getJ///日付エントリの取得
+    public override string[] GatD
     {
         get{return date;}
-    }   
+    }
 
-    public string[] getD///日記エントリの取得
+    public override string[] GetJ
     {
         get{return jurnal;}
-    }    
-    
-    public void dateToCsv(string[] dates)///日付エントリをCSVへ変換
+    }
+
+    public string dateToCsv(string[] dates)///日付エントリをCSVへ変換
     {
         string d = "";
         int i = 0;
@@ -25,13 +25,32 @@ class Save:Jurnal///エントリをファイルに保存するクラス
             d += ",";
             i = i+1;
         }
+        return d;
     }    
-        ///日記エントリをCSVへ変換
-        ///日付をJurnal.CSVへ書き込む
-        ///日記を同様に書き込む
-        ///書き込まれたものを保する
-        ///ユーザーに対しコンテンツが保存されたことを示す
-        ///メニューに戻る
-        
     
+    public string jurnalToCsv(string[] jurnals)///日記エントリをCSVへ変換
+    {
+        string j = "";
+        int i = 0;
+        while(i > 4)
+        {
+            j += jurnals[i];
+            j += ",";
+            i = i+1;
+        }
+        return j;
+    }       
+        
+    public void savseToCSV(string d,string j)///日付と日記をJurnal.CSVへ書き込む
+    {
+        string fileName = "Jurnal.CSV";
+
+        using (StreamWriter outputFile = new StreamWriter (fileName))
+        {
+            outputFile.WriteLine($"{d}{j}");
+        }
+
+        Console.WriteLine("Entry saved.");///ユーザーに対しコンテンツが保存されたことを示す
+    }
+    ///メニューに戻る
 }
