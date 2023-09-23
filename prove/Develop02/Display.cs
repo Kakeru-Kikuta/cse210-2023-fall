@@ -3,18 +3,15 @@ using System.Dynamic;
 
 class Display:Jurnal///エントリへのアクセスのためにClass Jurnal を継承
 {
-    public override string[] GetJ 
-    {
-        ///class Jurnalから日付データを取り出す
-        get{return jurnal;}
-        
-    }
-
-    public override string[] GetD
+    public override string[] GatD
     {
         get{return date;}
     }
 
+    public override string[] GetJ
+    {
+        get{return jurnal;}
+    }
 
     public void displayEntry()
     {

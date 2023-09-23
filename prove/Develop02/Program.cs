@@ -17,7 +17,7 @@ abstract class Jurnal///日記のエントリーの置き場所
     public abstract string[] GetJ///日記エントリの取得
     {
         get;
-    }   
+    }  
 
 }
 

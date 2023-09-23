@@ -3,6 +3,16 @@ using System.Reflection.Emit;
 
 class Write:Jurnal
 {
+    public override string[] GatD
+    {
+        get{return date;}
+    }
+
+    public override string[] GetJ
+    {
+        get{return jurnal;}
+    }
+    
     ///Ask a random question
     private string[] prompt = {"Best moment for today; ","The thing that you want to improve; ","Best food for today","Today's highest driving speed; ","An Attrractive object; "};
     

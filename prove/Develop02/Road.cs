@@ -3,8 +3,17 @@ using System.ComponentModel;
 using System.IO;
 using System.IO.Enumeration;
 using System.Text;
-class Road
+class Road:Jurnal
 {
+    public override string[] GatD
+    {
+        get{return date;}
+    }
+
+    public override string[] GetJ
+    {
+        get{return jurnal;}
+    }
     
     public void roadJurnalFormFile()///ファイルに保存された日記をロードするメソッド
     {
