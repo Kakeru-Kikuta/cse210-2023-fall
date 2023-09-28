@@ -12,8 +12,10 @@ public class Program///プログラムはユーザがエンターを押し続け
         while(Console.ReadKey().Key == ConsoleKey.Enter)
         {
             Scripture scripture = new Scripture();
-            Console.WriteLine(scripture);
+            scripture.splitText();
+            scripture.HideRandomWords();
             string userEntry = Console.ReadLine();
+
             if (userEntry == "quit")
             {
                 break;
