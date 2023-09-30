@@ -11,7 +11,7 @@ public class Word///単語ごとに配列化したデータの要素が置き換
     {
         isHidden = true;
         Scripture scripture =new Scripture();
-        Console.WriteLine();
+        scripture.splitText();
     }
 
     public void Show()///単語が隠されていないことを示すメソッド
