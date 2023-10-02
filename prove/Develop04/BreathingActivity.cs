@@ -2,7 +2,8 @@ using System;
 
 class BreathingActivity : Activity
 {
-    public BreathingActivity()
+    public BreathingActivity(string name, string description, int duration)
+       : base(name, description,duration)
     {
 
     }
