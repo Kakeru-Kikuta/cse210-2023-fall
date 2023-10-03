@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 
 class Activity
 {
-    public string _name;
-    public string _description;
-    public int _duration;
+    private string _name;
+    private string _description;
+    private int _duration;
 
     public Activity(string name, string description, int duration)
     {
@@ -14,14 +14,14 @@ class Activity
         _duration = duration;
     }
 
-    public void DisplayStartingMessage()
+    public void DisplayStartingMessage(string name)
     {
-
+        Console.WriteLine($"Welcome to {name}.");
     }
 
     public void DisplayEndingMessage()
     {
-
+        Console.WriteLine($"Good work!");
     }
 
     public void ShowSpinner(int seconds)
@@ -31,6 +31,6 @@ class Activity
 
     public void ShowCountDown(int second)
     {
-        
+
     }
 }

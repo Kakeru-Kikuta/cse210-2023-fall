@@ -2,7 +2,7 @@ using System;
 
 class ListingActivity : Activity
 {
-    int _count;
+    private int _count;
     private string[] _prompts =  
     {
         "Who are people that you appreciate?",
@@ -13,10 +13,12 @@ class ListingActivity : Activity
     };
 
     public ListingActivity(string name, string description, int duration, int count) 
-        : base(name, description,duration)
+        : base(name, description, duration)
     {
-        _count = count;
-
+        name = "Listing Activity";
+        description = 
+            "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        duration = 50;
     }
 
     public void Run()
