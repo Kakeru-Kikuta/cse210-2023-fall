@@ -2,35 +2,15 @@ using System;
 using System.Data.Common;
 using System.Security.Cryptography.X509Certificates;
 
-abstract class Jurnal///日記のエントリーの置き場所
-{
-    protected string[] jurnal = {"","","","","",""};
-    protected int arrayCount = 0;
-    
-    protected string[] date = {"","","","","",""};
-
-    public abstract string[] GatD///日付エントリの取得
-    {
-        get;
-    }   
-
-    public abstract string[] GetJ///日記エントリの取得
-    {
-        get;
-    }  
-
-}
-
-
 class Program
 {
     static void Main(string[] arge)
     {
         Write nikki  = new Write();
         int _userMenuEnter = -1;
-        while(_userMenuEnter == 5)
+        while(_userMenuEnter != 5)
         {
-            Console.WriteLine("Welcome to your journal! What do you want to do? Enter a menu number. \r\n1, Whrite new Journal. \r\n2 Show all Journal. \r\n3 Save your Journal. \r\n4 Road your Journal.");
+            Console.WriteLine("Welcome to your journal! What do you want to do? Enter a menu number. \r\n1, Whrite new Journal. \r\n2 Show all Journal. \r\n3 Save your Journal. \r\n4 Road your Journal. \r\n5 Quit. ");
 
             string userE = Console.ReadLine();
             _userMenuEnter = int.Parse(userE);
