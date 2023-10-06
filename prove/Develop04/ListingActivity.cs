@@ -2,7 +2,6 @@ using System;
 
 class ListingActivity : Activity
 {
-    private int _count;
     private string[] _prompts =  
     {
         "Who are people that you appreciate?",
