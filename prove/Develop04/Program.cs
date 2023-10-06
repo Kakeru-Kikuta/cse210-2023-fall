@@ -11,7 +11,7 @@ class Program
         {
             Console.WriteLine
             (
-                "Menu options:\r\n   1. Start breathing activity\r\n    2. Start reflecting activity\r\n    3. Start listing activity\r\n   4. Quit"
+                "Menu options:\r\n   1. Start breathing activity\r\n   2. Start reflecting activity\r\n   3. Start listing activity\r\n   4. Quit"
             );
             Console.WriteLine("Select a choice from the menu in number.");
             string enterNum = Console.ReadLine();
