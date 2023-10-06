@@ -27,17 +27,30 @@ class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?"
     };
 
-    public ReflectingActivity(string name, string description, int duration)
-         : base(name, description, duration)
+    private List<int> usedIndexes = new();
+
+    public ReflectingActivity()
     {
-        name = "Reflecting Activity";
-        description =
+        _name = "Reflecting Activity";
+        _description =
             "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
-        duration = 50;
+ 
     }
 
     public void Run()
     {
+        DisplayStartingMessage();
+        // Consider the following prompt
+        // display prompt
+        // reflect onthe following questions relating to the prompt
+        DateTime end = DateTime.Now.AddSeconds(_duration);
+        while(DateTime.Now < end)
+        {
+            // display the question
+            // show countdown(10)
+        }
+        
+        DisplayEndingMessage();
 
     }
 
@@ -51,7 +64,16 @@ class ReflectingActivity : Activity
     public string GetRandomQuestion()
     {
         Random rnd = new Random();
-        int qIndex = rnd.Next(_questions.Length);
+        int qIndex;
+        do
+        {
+            qIndex = rnd.Next(_questions.Length);
+        } while(usedIndexes.Contains(qIndex));
+
+        usedIndexes.Add(qIndex);
+        if (usedIndexes.Count == _questions.Length)
+            usedIndexes.Clear();
+            
         return _prompts[qIndex];
     }
 

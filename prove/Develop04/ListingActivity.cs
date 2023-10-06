@@ -12,28 +12,31 @@ class ListingActivity : Activity
         "Who are some of your personal heroes?"
     };
 
-    public ListingActivity(string name, string description, int duration, int count) 
-        : base(name, description, duration)
+    public ListingActivity()
     {
-        name = "Listing Activity";
-        description = 
+        _name = "Listing Activity";
+        _description = 
             "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
-        duration = 50;
     }
 
     public void Run()
     {
-
+        DisplayStartingMessage();
+        // List items based on the following prompt
+        // display prompt
+        DateTime end = DateTime.Now.AddSeconds(_duration);
+        while(DateTime.Now < end)
+        {
+            // get user input
+            // count++
+        }
+        
+        DisplayEndingMessage();
     }
 
     public void GetRandomPrompt()
     {
         Random rnd = new Random();
         int pIndex = rnd.Next(_prompts.Length);
-    }
-
-    public GetListFromUser()
-    {
-        return 
     }
 }

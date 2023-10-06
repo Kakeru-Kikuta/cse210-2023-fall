@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         int _menuEnter = -1;
-        while (_menuEnter == 4)
+        while (_menuEnter != 4)
         {
             Console.WriteLine
             (
@@ -23,13 +23,13 @@ class Program
                 breathing.Run();
             }
 
-            if(_menuEnter == 2)
+            else if(_menuEnter == 2)
             {
                 ReflectingActivity reflecting = new ReflectingActivity();
                 reflecting.Run();
             }
 
-            if(_menuEnter == 3)
+            else if(_menuEnter == 3)
             {
                 ListingActivity listing = new ListingActivity();
                 listing.Run();
