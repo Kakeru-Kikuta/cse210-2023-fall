@@ -1,4 +1,6 @@
 using System;
+using System.Net.Http.Headers;
+using System.Xml.Schema;
 
 class ListingActivity : Activity
 {
@@ -23,19 +25,32 @@ class ListingActivity : Activity
         DisplayStartingMessage();
         // List items based on the following prompt
         // display prompt
+        Console.WriteLine("Consider the following prompt; ");
+        DisplayPrompts();
+        ShowCountDown(10);
         DateTime end = DateTime.Now.AddSeconds(_duration);
         while(DateTime.Now < end)
         {
             // get user input
+            Console.ReadLine();
             // count++
+            
+            
         }
         
         DisplayEndingMessage();
     }
 
-    public void GetRandomPrompt()
+    public string GetRandomPrompt()
     {
         Random rnd = new Random();
         int pIndex = rnd.Next(_prompts.Length);
+        return _prompts[pIndex];
+    }
+
+    public void DisplayPrompts()
+    {
+        string prompt = GetRandomPrompt();
+        Console.WriteLine(prompt);
     }
 }

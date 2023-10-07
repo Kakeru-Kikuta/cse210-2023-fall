@@ -40,14 +40,18 @@ class ReflectingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        // Consider the following prompt
+        Console.WriteLine("Consider the following prompt; ");
         // display prompt
-        // reflect onthe following questions relating to the prompt
+        DisplayPrompt();
+        ShowSpinner(10);
+        Console.WriteLine("reflect onthe following questions relating to the prompt; ");
         DateTime end = DateTime.Now.AddSeconds(_duration);
         while(DateTime.Now < end)
         {
             // display the question
+            DisplayQuestions();
             // show countdown(10)
+            ShowSpinner(10);
         }
         
         DisplayEndingMessage();
@@ -73,8 +77,8 @@ class ReflectingActivity : Activity
         usedIndexes.Add(qIndex);
         if (usedIndexes.Count == _questions.Length)
             usedIndexes.Clear();
-            
-        return _prompts[qIndex];
+
+        return _questions[qIndex];
     }
 
     public void DisplayPrompt()
