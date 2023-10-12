@@ -2,34 +2,42 @@ using System;
 using System.ComponentModel;
 using System.Globalization;
 
-public class Goal
+public abstract class Goal
 {
-    private string _shortName;
-    private string _description;
-    private string _points;
+    protected string _shortName;
+    protected string _description;
+    protected int _points;
+    protected bool _isComplete;
 
-    public Goal()
+    public Goal(string shortName, string description, int points)
     {
-
+        _shortName = shortName;
+        _description = description;
+        _points = points;
+        _isComplete = false;
     }
 
-    public void RecordEvent()
-    {
-
-    }
+    public abstract int RecordEvent();
 
     public bool IsComplete()
     {
-        return false;
+        return _isComplete;
     }
 
-    public string GetDetailsString()
+    public virtual string GetDetailsString()
     {
-        return 
+        return $"[{GetCompleteChar()}] {_shortName}: ({_description})";
     }
 
-    public string GetStringRepresentation()
+    protected char GetCompleteChar()
     {
-        return
+        if(_isComplete)
+        {
+            return 'X';
+        }
+        else
+        {
+            return ' ';
+        }
     }
 }

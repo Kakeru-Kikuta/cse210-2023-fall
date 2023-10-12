@@ -4,25 +4,14 @@ using Microsoft.Win32.SafeHandles;
 
 public class SimpleGoal : Goal
 {
-    private bool _isComolete;
+    public SimpleGoal(string shortName, string description, int points) : base(shortName, description, points)
+    {}
 
-    public SimpleGoal()
+    public override int RecordEvent()
     {
-        
+        _isComplete = true;
+        Console.WriteLine("Well done! Goal Completed.");
+        return _points;
     }
 
-    public void RecordEvent()
-    {
-
-    }
-
-    public bool IsComplete()
-    {
-        return false;
-    }
-
-    public string GetStringRepresentation()
-    {
-        return
-    }
 }
