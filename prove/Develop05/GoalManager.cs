@@ -23,12 +23,6 @@ public class GoalManager
         }
     }
 
-    public void LsitGoalDetails()
-    {
-        //Loop through the list
-        //      call the GetDetailsString()
-    }
-
     public void CreateGoal()
     {
         Console.WriteLine("Which goal would you like to create:");
@@ -80,17 +74,25 @@ public class GoalManager
     public void RecordEvent()
     {
         // Create temporary goals list (uncompletedGoals)
-        List<string>_uncompletedGoals = new List<string>();
+        List<int> indexs = new();
+        // INDEX: 0  1  2  3 ...
+        //        5  7  8  12... 
         // create counter variable to represent the printed index (int counter = 1)
         int counter = 1;
+        int index = 0;
         // Loop through the main goals list
-        for (string i in Goal)
-        {}
-        //      check if the goal is completed
-        //             add the goal to the temporary list (represent the uncompleted goals)
-        //             print the goal with the counter ( "1) Goal Name"   ) 
-        //  get user choice
-        //  _score += uncompletedGoals[choice - 1].RecordEvent()
+        foreach (Goal goal in _goals)
+        {
+            if(!goal.IsComplete())
+            {
+               indexs.Add(index);
+               Console.WriteLine($"{counter}) {goal.GetDetailsString()}");
+               counter++;
+            }
+            index++;
+        }
+        int userInput = int.Parse(Console.ReadLine());
+        _score += _goals[indexs[userInput]].RecordEvent();
 
     }
 
@@ -99,12 +101,12 @@ public class GoalManager
         Console.Write("What is the file name for the goal file?: ");
         string fileName = Console.ReadLine();
         
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
-            outputFile.WriteLine("This will be the first line in the file.");
-            
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
+            foreach(Goal goal in _goals)
+            {
+                outputFile.WriteLine(goal.GetFileString());
+            }
         }
     }
 
@@ -116,12 +118,35 @@ public class GoalManager
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
+            string[] parts = line.Split("|");
+            string type = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            int points = int.Parse(parts[3]);
 
-            string firstName = parts[0];
-            string lastName = parts[1];
+            switch(type)
+            {
+                case "Eternal":
+                    EternalGoal eGoal = new(name, description, points);
+                    _goals.Add(eGoal);
+                    break;
+                case "Simple":
+                    bool isComplete = bool.Parse(parts[4]);
+                    SimpleGoal sGoal = new(name, description, points, isComplete);
+                    _goals.Add(sGoal);
+                    break;
+                case "Checklist":
+                    isComplete = bool.Parse(parts[4]);
+                    int timesCompleted = int.Parse(parts[5]);
+                    int target = int.Parse(parts[6]);
+                    int bonus = int.Parse(parts[7]);
+                    ChecklistGoal cGoal = new(name, description, points, isComplete, timesCompleted, target, bonus);
+                    _goals.Add(cGoal);
+                    break;
+                default:
+                    Console.WriteLine("Unable to load goal.");
+                    break;
+            }
         }
     }
-
-
 }

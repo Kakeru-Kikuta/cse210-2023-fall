@@ -17,6 +17,14 @@ public abstract class Goal
         _isComplete = false;
     }
 
+    public Goal(string shortName, string description, int points, bool isComplete)
+    {
+        _shortName = shortName;
+        _description = description;
+        _points = points;
+        _isComplete = isComplete;
+    }
+
     public abstract int RecordEvent();
 
     public bool IsComplete()
@@ -40,4 +48,6 @@ public abstract class Goal
             return ' ';
         }
     }
+
+    public abstract string GetFileString();
 }

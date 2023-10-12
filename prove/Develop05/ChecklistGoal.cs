@@ -16,6 +16,13 @@ public class ChecklistGoal : Goal
         _amountCompleted = 0;
     }
 
+    public ChecklistGoal(string shortName, string description, int points, bool isComplete, int timesCompleted, int target, int bonus) : base(shortName, description, points, isComplete)
+    {
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = timesCompleted;
+    }
+
     public override int RecordEvent()
     {
         _amountCompleted ++;
@@ -34,7 +41,12 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"[{GetCompleteChar()}] {_shortName}: ({_description}) -- Currently Completed: {_amountCompleted}/{_target}6";
+        return $"[{GetCompleteChar()}] {_shortName}: ({_description}) -- Currently Completed: {_amountCompleted}/{_target}";
+    }
+
+    public override string GetFileString()
+    {
+        return $"Checklist|{_shortName}|{_description}|{_points}|{_isComplete}|{_amountCompleted}|{_target}|{_bonus}";
     }
 
 }
