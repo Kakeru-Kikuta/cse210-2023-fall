@@ -1,0 +1,35 @@
+Project Foundation 4
+{
+    Overview
+    {
+        Program 1
+        {
+            The purpose of the program is to track YouTube videos and comments added to them.
+            This time we will focus on saving that information using methods such as lists.
+            Abstraction is essential to achieving this goal.
+        }
+
+        Program 2
+        {
+            Creating a program to manage common online orders. Order information, customer information, etc. are stored and operated in separate classes, 
+            so in order to prevent information from being mixed up due to unintended behavior, 
+            member variables should be used only within that class by applying the principle of encapsulation. is the condition.
+        }
+
+        Program 3
+        {
+            Creating a program to plan and manage three different types of events. Each event has some common items in the data to be tracked, 
+            but not all of them are the same, so it is best to set a base class, create basic information and methods, and inherit them.
+            In the case of an outdoor event, a method that returns the weather forecast is required as data to be considered, 
+            and if some performers are participating, a method that returns this additional information is required.
+        }
+
+        Program 4
+        {
+            Create a program that creates three different exercise records and calculates and returns overall results and various numerical values ​​based on the data obtained from them.
+            Each exercise uses common elements such as distance and speed to record records, and in some cases the same calculation formula is used,
+            so it is recommended to define attributes and methods using the principle of polymorphism and override them in each inherited class. It's perfect.
+        }
+    }
+}
+
