@@ -1,10 +1,15 @@
 using System;
 
-class Product
+public class Product
 {
     private string _productID;
     private int _price;
     private int _quantity;
 
-    /// price*quantity = total
+    public int ComputePrice()
+    {
+        /// price*quantity = total
+    }
+
+    
 }
