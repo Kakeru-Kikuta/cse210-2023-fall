@@ -1,15 +1,19 @@
 using System;
+using System.Dynamic;
 using System.Net.Sockets;
 
 class Customer
 {
-    private string _custmerName;
+    private string _customerName;
     private Address _address;
     ///Call Address class and its methods. <summary>
-    
-    // COnstructor Customer( customerName, Address address )
-    //      _customerName = customerName
-    //      _address - address
+    Address address = new Address();
+    // Constructor Customer( customerName, Address address )
+    public Customer(string customerName, Address address)
+    {
+          _customerName = customerName;
+          _address = address;
+    }
     
     // Getter method for the address GetAdress()
 

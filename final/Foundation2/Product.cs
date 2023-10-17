@@ -1,18 +1,26 @@
 using System;
+using System.Xml.Schema;
 
 public class Product
 {
-    // name
+    private string _name;
     private string _productID;
     private int _price;
     private int _quantity;
 
-    // Constructor Product( name, poductID, price, quantity )
-    //      Set the attributes
+    public Product( string name, string poductID, int price, int quantity )
+    {
+        //      Set the attributes
+        _name = name;
+        _productID = poductID;
+        _price = price;
+        _quantity = quantity;
+    }
+    
 
     public int ComputePrice()
     {
-        /// price*quantity = total
+        total = price*quantity;
     }
 
     
