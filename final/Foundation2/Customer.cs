@@ -4,12 +4,15 @@ using System.Net.Sockets;
 class Customer
 {
     private string _custmerName;
-
-    ///Call Address class and its methods.
+    private Address _address;
+    ///Call Address class and its methods. <summary>
     
-    public string CustomerInfo()
-    {
+    // COnstructor Customer( customerName, Address address )
+    //      _customerName = customerName
+    //      _address - address
+    
+    // Getter method for the address GetAdress()
 
-    }
+    //Getter for the name GetName()
 
 }

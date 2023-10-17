@@ -2,6 +2,11 @@ using System;
 
 class Comment
 {
-    string _person;
-    string _comments;
+    public string _person;
+    public string _comment;
+
+    public void Display()
+    {
+        Console.WriteLine($"Name: {_person}\nComment: {_comment}");
+    }
 }
