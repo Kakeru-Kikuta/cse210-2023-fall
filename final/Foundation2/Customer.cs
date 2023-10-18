@@ -6,17 +6,21 @@ class Customer
 {
     private string _customerName;
     private Address _address;
-    ///Call Address class and its methods. <summary>
-    Address address = new Address();
-    // Constructor Customer( customerName, Address address )
     public Customer(string customerName, Address address)
     {
-          _customerName = customerName;
-          _address = address;
+        _customerName = customerName;
+        _address = address;
     }
     
     // Getter method for the address GetAdress()
+    public Address GetAddress()
+    {
+        return _address;
+    }
 
     //Getter for the name GetName()
-
+    public string GetName()
+    {
+        return _customerName;
+    }
 }

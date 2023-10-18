@@ -5,12 +5,15 @@ public class Product
 {
     private string _name;
     private string _productID;
-    private int _price;
+    private float _price;
     private int _quantity;
+    public string ProductID{ get{return _productID;} set{_productID = value;}}
+    public string Name{ get{return _name;} set{_name = value;}}
+    // product.Name
+    // product.Name = "..."
 
-    public Product( string name, string poductID, int price, int quantity )
+    public Product( string name, string poductID, float price, int quantity )
     {
-        //      Set the attributes
         _name = name;
         _productID = poductID;
         _price = price;
@@ -18,10 +21,8 @@ public class Product
     }
     
 
-    public int ComputePrice()
+    public float ComputePrice()
     {
-        total = price*quantity;
+        return _price * _quantity;
     }
-
-    
 }

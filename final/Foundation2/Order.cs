@@ -1,59 +1,63 @@
 using System;
+using System.Data;
 using System.Runtime;
 
 class Order
 {
-    // Customer customer
-    Customer customer = new Customer();
-    // List<Product> products = new();
+    Customer _customer;
     private List<Product> products = new List<Product>();
-    
-    //Constructor Order( Customer customer )
     public Order(Customer customer)
     {
-        // set customer
-        
+        _customer = customer;
     }
     
 
     public void AddProduct()
     {
-        // name = GET
-        // ID = GET
-        // ...
-        //  create product object | Product product = new(name, id, price quantity)
-        Product product = new Product();
-        //  add product to the list
-        
-
-
+        Console.Write("Enter the Name: ");
+        string name = Console.ReadLine();
+        Console.Write("Enter the ID: ");
+        string id = Console.ReadLine();
+        Console.Write("Enter the Price: ");
+        float price = float.Parse(Console.ReadLine());
+        Console.Write("Enter the Quantity: ");
+        int quantity = int.Parse(Console.ReadLine());
+        Product product = new Product(name, id, price, quantity);
+        products.Add(product);
     }
-    
 
-    public int CalculateTotalCost()
+    private float CalculateTotalCost()
     {
-    //  Add all product prices plus one time shipping fee
-    //  * shipping fee will change based on wether its in the US
-    //      IF in US ( customer.GetAddress().GetIsUS())
-    //          shipping cost = 5
-    //      ELSE
-    //          Shipping cost = 35
-    //
+        float total = 0;
+        float shipping = 0;
+        foreach(Product product in products)
+        {
+            total += product.ComputePrice();
+        }
+
+        if(_customer.GetAddress().GetIsUS())
+        {
+            shipping = 5;
+        }
+        else
+        {
+            shipping = 35;
+        }
+        return total + shipping;
     }
 
     public void GetPackingLabel()
-    {
-    //  Loop through the list (foreach loop)
+    {   
+        Console.WriteLine($"Cost: {CalculateTotalCost()}");
         foreach(Product product in products)
         {
-    //      PUT product name and ID
-            
-            
+            Console.WriteLine($"Name: {product.Name} ID: {product.ProductID}");
         }
+    }
 
-    //GetShippinfLabel
-    // PUT Customer name and address
-    //  name: customer.GetName()
-    // address: customer.GetAddress().GetAddressString()
+    public void GetShippingLabel()
+    {
+        Console.WriteLine($"Name: {_customer.GetName()}");
+        Console.WriteLine($"Address: {_customer.GetAddress().GetAddressString()}");
     }
 }

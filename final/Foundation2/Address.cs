@@ -21,9 +21,6 @@ class Address
     // GetAddressString Method
     public string GetAddressString()
     {
-    //      Build the address string
-
-    //      RETURN S"..." *similar to display for video and comment class
         return $"{_streetAddress} {_city} {_stateOrProvince} {_country}";
     }
 
