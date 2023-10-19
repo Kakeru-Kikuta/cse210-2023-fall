@@ -8,7 +8,7 @@ class Running: Activity
     {
         _runDistance = runDistance;
     }
-
+    
     public override float CalculateDistance()
     {
         return _runDistance;
