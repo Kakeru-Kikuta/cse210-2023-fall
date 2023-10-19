@@ -7,5 +7,8 @@ public class ActManager
     public ActManager()
     {}
 
-    
+    public void AddActivity(Activity activity)
+    {
+        _acts.Add(activity);
+    } 
 }

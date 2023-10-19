@@ -2,25 +2,23 @@ using System;
 
 class Swimming: Activity
 {
-    private int numOfLaps;
+    private int _numOfLaps;
 
-    public Swimming(string date, int actLength): base(date,actLength)
-    {}
-
-    public override int CalculateDistance()
+    public Swimming(string date, float actLength, int numOfLaps): base(date,actLength)
     {
-
+        _numOfLaps = numOfLaps;
     }
-    public override int CalculateSpeed()
-    {
 
+    public override float CalculateDistance()
+    {
+        return _numOfLaps * 50 / 1000;
     }
-    public override int CalculatePace()
+    public override float CalculateSpeed()
     {
-
+        return CalculateDistance() / _actLength;
     }
-    public override string DisplaySummary()
+    public override float CalculatePace()
     {
-
+        return _actLength / CalculateDistance();
     }
 }

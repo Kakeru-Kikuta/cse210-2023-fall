@@ -2,17 +2,20 @@ using System;
 
 public abstract class Activity
 {
-    private string _date;
-    private int _actLength;
+    protected string _date;
+    protected float _actLength;
 
-    public Activity(string date, int actLength)
+    public Activity(string date, float actLength)
     {
         _date = date;
         _actLength = actLength;
     }
 
-    public abstract int CalculateDistance();
-    public abstract int CalculateSpeed();
-    public abstract int CalculatePace();
-    public abstract string DisplaySummary();
+    public abstract float CalculateDistance();
+    public abstract float CalculateSpeed();
+    public abstract float CalculatePace();
+    public string DisplaySummary()
+    {
+        return $"{_date} {GetType()} ({_actLength} min) Distance: {CalculateDistance()} km Speed: {CalculateSpeed()} kph Pace: {CalculatePace()} km";
+    }
 }

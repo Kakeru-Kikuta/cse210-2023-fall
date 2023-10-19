@@ -3,25 +3,23 @@ using System.Security.Cryptography.X509Certificates;
 
 class Cycling: Activity
 {
-    private int _speed;
+    private float _speed;
 
-    public Cycling(string date, int actLength): base(date,actLength)
-    {}
-
-    public override int CalculateDistance()
+    public Cycling(string date, float actLength, float speed): base(date,actLength)
     {
-
+        _speed = speed;
     }
-    public override int CalculateSpeed()
-    {
 
+    public override float CalculateDistance()
+    {
+        return CalculateSpeed() * _actLength;
     }
-    public override int CalculatePace()
+    public override float CalculateSpeed()
     {
-
+        return _speed;
     }
-    public override string DisplaySummary()
+    public override float CalculatePace()
     {
-
+        return _actLength / CalculateDistance();
     }
 }
