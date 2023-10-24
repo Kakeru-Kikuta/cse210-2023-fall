@@ -15,7 +15,7 @@ class Running: Activity
     }
     public override float CalculateSpeed()
     {
-        return _runDistance / _actLength * 60;
+        return _runDistance / (_actLength * 60);
     }
     public override float CalculatePace()
     {

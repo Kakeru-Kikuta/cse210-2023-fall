@@ -11,5 +11,4 @@ public class ActManager
     {
         _acts.Add(activity);
     }
-
 }

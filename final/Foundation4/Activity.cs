@@ -14,8 +14,8 @@ public abstract class Activity
     public abstract float CalculateDistance();
     public abstract float CalculateSpeed();
     public abstract float CalculatePace();
-    public string DisplaySummary()
+    public void DisplaySummary()
     {
-        return $"{_date} {GetType()} ({_actLength} min) Distance: {CalculateDistance()} km Speed: {CalculateSpeed()} kph Pace: {CalculatePace()} km";
+        Console.WriteLine($"{_date} {GetType()} ({_actLength} min) Distance: {CalculateDistance()} km Speed: {CalculateSpeed()} kph Pace: {CalculatePace()} km");
     }
 }
