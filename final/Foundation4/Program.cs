@@ -26,9 +26,5 @@ class Program
         actManager.AddActivity(running);
         actManager.AddActivity(cycling);
         actManager.AddActivity(swimming);
-        //The calculations for cycling and swimming don't use hard-coded numbers, so I'm not getting the results I expected, but I don't know how to solve that problem.
-        //01/18/2023 Running (1 min) Distance: 2 km Speed: 120 kph Pace: 0.5 km
-        //01/19/2023 Cycling (2 min) Distance: 6 km Speed: 3 kph Pace: 0.33333334 km
-        //01/20/2023 Swimming (3 min) Distance: 0 km Speed: 0 kph Pace: ∞ km
     }
 }
